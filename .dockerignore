@@ -1,0 +1,5 @@
+.git
+.dockerignore
+.byebyg_history
+log/*
+tmp/*

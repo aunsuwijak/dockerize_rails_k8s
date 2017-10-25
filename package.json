@@ -1,0 +1,5 @@
+{
+  "name": "dockerize_rails_k8s",
+  "private": true,
+  "dependencies": {}
+}
