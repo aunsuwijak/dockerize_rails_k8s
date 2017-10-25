@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Install dependencies
+          command: |
+            apk add --no-cache docker-compose
+      - run:
+          name: Start docker compose
+          command: |
+            docker-compose up --build -d
+            docker-compose run --rm app rails db:setup
+      - run:
+          name: Run tests
+          command: |
+            docker-compose run --rm app rspec
