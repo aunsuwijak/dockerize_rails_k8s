@@ -17,7 +17,6 @@ jobs:
           name: Start docker compose
           command: |
             docker-compose up --build -d
-            docker-compose run --rm app rails db:setup
       - run:
           name: Run tests
           command: |
