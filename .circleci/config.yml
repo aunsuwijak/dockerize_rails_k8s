@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Database setup
           command: |
-            docker-compose run --rm app rails db:setup
+            docker-compose run --rm -e "RAILS_ENV=development" app rails db:setup
       - run:
           name: Run tests
           command: |
