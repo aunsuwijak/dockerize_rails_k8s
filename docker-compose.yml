@@ -18,8 +18,6 @@ services:
       dockerfile: 'Dockerfile.app.dev'
     ports:
       - '3000:3000'
-    volumes:
-      - '.:/app'
     env_file: '.app.env'
   nginx:
     container_name: 'dockerize_rails_k8s_nginx'
