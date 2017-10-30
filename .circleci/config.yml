@@ -18,6 +18,10 @@ jobs:
           command: |
             docker-compose up --build -d
       - run:
+          name: Database setup
+          command: |
+            docker-compose run --rm app rails db:setup
+      - run:
           name: Run tests
           command: |
             docker-compose run --rm app rspec
