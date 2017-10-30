@@ -9,11 +9,8 @@ jobs:
       - run:
           name: Start docker-compose
           command: docker-compose up --build -d
-      # - run:
-      #     name: sleep for waiting launch db
-      #     command: sleep 1
       - run:
-          name: "before_test: setup db"
+          name: Database setup
           command: docker-compose run --rm app rails db:create db:migrate
       - run:
           name: Run test
