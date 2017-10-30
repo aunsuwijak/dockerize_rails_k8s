@@ -16,11 +16,12 @@ jobs:
       - run:
           name: Start docker compose
           command: |
-            docker-compose up --build -d
+            docker-compose -f docker-compose.test.yml up --build -d
       - run:
           name: Database setup
           command: |
-            docker-compose run --rm -e "RAILS_ENV=development" app rails db:setup
+            docker-compose run --rm app rails db:environment:set RAILS_ENV=test
+            docker-compose run --rm app rails db:schema:load RAILS_ENV=test
       - run:
           name: Run tests
           command: |

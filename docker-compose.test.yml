@@ -18,7 +18,7 @@ services:
       dockerfile: 'Dockerfile.app.dev'
     ports:
       - '3000:3000'
-    env_file: '.app.dev.env'
+    env_file: '.app.test.env'
   nginx:
     container_name: 'dockerize_rails_k8s_nginx'
     depends_on:
